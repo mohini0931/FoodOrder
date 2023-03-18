@@ -25,18 +25,18 @@ export class FoodService {
         id : 1,
         price : 100,
         name : 'Hakka Noodles',
-        favorite : false,
+        favorite : true,
         star:  3.0,
         tags: ['FastFood', 'Noodles', 'Lunch'],
         imageUrl : '/assets/noodles.jpg',
-        cookTime : '10-20 minutes',
+        cookTime : '20 minutes',
         origins : ['Italy']
       },
       {
         id : 2,
         price : 150,
         name : 'Veg Pizza',
-        favorite : false,
+        favorite : true,
         star:  3.5,
         tags: ['FastFood', 'Pizza', 'Lunch'],
         imageUrl : '/assets/food-2.jpg',
@@ -51,7 +51,7 @@ export class FoodService {
         star:  5.0,
         tags: ['FastFood', 'Sweet', 'Lunch'],
         imageUrl : '/assets/food-3.jpg',
-        cookTime : '10-20 minutes',
+        cookTime : '15 minutes',
         origins : ['India']
       },
       {
@@ -95,7 +95,7 @@ export class FoodService {
         star:  4.2,
         tags: ['FastFood', 'Wrap', 'Lunch'],
         imageUrl : '/assets/food-7.jpg',
-        cookTime : '10-20 minutes',
+        cookTime : '15 minutes',
         origins : ['India']
       },
       {
@@ -106,7 +106,7 @@ export class FoodService {
         star:  5.0,
         tags: ['FastFood', 'Biryani', 'Lunch'],
         imageUrl : '/assets/food-8.jpg',
-        cookTime : '10-20 minutes',
+        cookTime : '20 minutes',
         origins : ['India']
       }
     ]
