@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodService } from '../services/food/food.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPageComponent implements OnInit {
 
-  constructor() { }
+  cart: any = [];
+  constructor(private foodService: FoodService) { }
 
   ngOnInit(): void {
+    this.cart = this.foodService.getCartItems();
   }
 
 }

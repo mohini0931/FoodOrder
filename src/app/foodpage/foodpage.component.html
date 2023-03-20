@@ -1,13 +1,12 @@
 <div class="container">
-    <img [src]="food.imageUrl" [alt]="food.name"  style="height: 20rem; width: 20rem;"  />
-</div>
+    <img [src]="food.imageUrl" [alt]="food.name"  />
 
 <div class="details">
     <div class="header">
         <span class="name">
-            {{ food.name }}
+            {{ food.name }} {{food.favorite}}
         </span>
-        <span class="favorite {{food.favorite? '' : 'not'}}">
+        <span [ngClass]=" food.favorite? 'favorite' : '' ">
             ❤︎
         </span>
     </div>
@@ -26,7 +25,18 @@
             {{ origin }}
           </span>
     </div>
+    <div class="cook-time">
+        <span> 🕒 </span>
+        {{ food.cookTime }}
+      </div>
+    <div class="price">
+        {{ food.price | currency : "INR" }}
+      </div>
+     <div class="cart">
+        <button (click)="AddToCart(food)">Add To Cart</button>
+     </div> 
     <div class="tag">
         <app-tags [foodTag] = "food"></app-tags>
-    </div>
+    </div>  
+</div>
 </div>

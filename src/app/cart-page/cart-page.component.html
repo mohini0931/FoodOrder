@@ -1,1 +1,12 @@
-<p>cart-page works!</p>
+<ul>
+    <li *ngFor="let cartitem of cart">
+        <div>
+        <img [src]="cartitem.imageUrl" [alt]="cartitem.name" style="height: 15rem;width: 15rem;">
+        </div>
+        <div>
+            <a routerLink="/food/{{cartitem.id}}">
+                {{cartitem.name}}
+            </a>
+        </div>
+    </li>
+</ul>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Cart } from 'src/app/models/Cart';
 import { Tag } from 'src/app/models/tags';
 import { Foods } from './../../models/food';
 
@@ -7,7 +8,7 @@ import { Foods } from './../../models/food';
 })
 export class FoodService {
   constructor() {}
-
+  cart: any[] = [];
   getFoodById(id: number):Foods{
     return this.getAll().find(food => food.id == id)!;
   }
@@ -138,5 +139,11 @@ export class FoodService {
       { name: 'Sweet', count: 2 },
       { name: 'MainCourse', count: 1 }
     ]
+  }
+  addToCart(food: Foods){
+    this.cart.push(food);
+  }
+  getCartItems() {
+    return this.cart;
   }
 }
