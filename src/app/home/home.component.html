@@ -2,7 +2,7 @@
 <app-tags></app-tags>
 <ul>
   <li *ngFor="let food of foods">
-    <a>
+    <a routerLink="/food/{{ food.id }}">
       <img
         src="{{ food?.imageUrl }}"
         alt="food images"
@@ -12,7 +12,7 @@
         <div class="name">
           {{ food?.name }}
         </div>
-        <span class="favorite {{food?.favorite?'':'not'}}"> ❤︎ </span>
+        <span class="favorite {{ food?.favorite ? '' : 'not' }}"> ❤︎ </span>
         <!-- <span class="favorite" *ngIf="!food?.favorite"> ❤︎ </span> -->
         <star-rating
           [value]="food.star"
@@ -22,20 +22,19 @@
           size="24px"
           [readonly]="true"
         ></star-rating>
-       <div class="product-item-footer">
-        <div class="origins">
+        <div class="product-item-footer">
+          <div class="origins">
             <span *ngFor="let origin of food?.origins">
-                {{origin}}
+              {{ origin }}
             </span>
-        </div>
-        <div class="cook-time">
+          </div>
+          <div class="cook-time">
             <span> 🕒 </span>
             {{ food?.cookTime }}
+          </div>
         </div>
-       
-       </div> 
-       <div class="price">
-        {{ food?.price | currency: 'INR' }}
+        <div class="price">
+          {{ food?.price | currency : "INR" }}
         </div>
       </div>
     </a>

@@ -8,6 +8,10 @@ import { Foods } from './../../models/food';
 export class FoodService {
   constructor() {}
 
+  getFoodById(id: number):Foods{
+    return this.getAll().find(food => food.id == id)!;
+  }
+
   getAll(): Foods[] {
     // return [
     //   '/assets/food-1.jpg',
@@ -70,7 +74,7 @@ export class FoodService {
         name: 'Chocolate Milk Shake',
         favorite: false,
         star: 5.0,
-        tags: ['Beverages', 'Juice', 'Lunch'],
+        tags: ['Beverages', 'Juice'],
         imageUrl: '/assets/food-5.jpg',
         cookTime: '10 minutes',
         origins: ['India'],
@@ -131,7 +135,8 @@ export class FoodService {
       { name: 'Breakfast', count: 1 },
       { name: 'Dinner', count: 1 },
       { name: 'Juice', count: 1 },
-      { name: 'Sweet', count: 2 }
+      { name: 'Sweet', count: 2 },
+      { name: 'MainCourse', count: 1 }
     ]
   }
 }
