@@ -83,7 +83,7 @@ ul .remove-button:hover{
     margin-bottom: 1.5rem;
 }
 .checkout .food-count::before{
-    content: 'Total Product: ';
+    content: 'Total Products: ';
     color: gray;
 }
 .checkout .total-price::before{
