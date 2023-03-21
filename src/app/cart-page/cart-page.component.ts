@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../models/Cart';
+import { CartItem } from '../models/CartItem';
+import { CartService } from '../services/cart.service';
 import { FoodService } from '../services/food/food.service';
 
 @Component({
@@ -8,11 +11,27 @@ import { FoodService } from '../services/food/food.service';
 })
 export class CartPageComponent implements OnInit {
 
-  cart: any = [];
-  constructor(private foodService: FoodService) { }
-
+  cart!: Cart;
+  constructor(private cartService: CartService,
+    private foodService: FoodService) {
+     let foods = foodService.getAll();
+     cartService.addToCart(foods[1]); 
+     cartService.addToCart(foods[3]); 
+     cartService.addToCart(foods[5]); 
+    this.setCart();
+   }
   ngOnInit(): void {
-    this.cart = this.foodService.getCartItems();
+   
   }
-
+  setCart() {
+    this.cart = this.cartService.getCart();  
+  }
+  changeQuantity(cartItem: CartItem, qty: string) {
+    const quantity = parseInt(qty);
+    this.cartService.changeQuantity(cartItem.food.id, quantity);
+    this.setCart();
+  }
+  removeFromCart(cartItem: CartItem) {
+    this.cartService.removeFromCart(cartItem.food.id);
+  }
 }

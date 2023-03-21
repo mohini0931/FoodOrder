@@ -140,10 +140,4 @@ export class FoodService {
       { name: 'MainCourse', count: 1 }
     ]
   }
-  addToCart(food: Foods){
-    this.cart.push(food);
-  }
-  getCartItems() {
-    return this.cart;
-  }
 }
